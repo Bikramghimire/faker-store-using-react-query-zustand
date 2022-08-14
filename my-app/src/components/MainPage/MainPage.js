@@ -1,9 +1,12 @@
 import React from "react";
+import Navbar from "../Navbar/Navbar";
+import { Products } from "../Products/Products";
 
 const MainPage = () => {
   return (
     <div>
-      <p>this is the main page</p>
+      <Navbar />
+      <Products />
     </div>
   );
 };

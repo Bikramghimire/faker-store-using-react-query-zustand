@@ -6,8 +6,11 @@ const getAllProduct = async () => {
   return response;
 };
 const getSingleProduct = async (productID) => {
-  const response = apiClient.get(`/products/${productID}`);
-  return response;
+  await apiClient.get(`/products/${productID}`);
 };
 
-export { getAllProduct, getSingleProduct };
+const postSingleProduct = async (data) => {
+  await apiClient.post("/products", data);
+};
+
+export { getAllProduct, getSingleProduct, postSingleProduct };

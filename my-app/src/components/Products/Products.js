@@ -2,13 +2,15 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useEffect } from "react";
 import { getAllProduct } from "../../api/productApi/productApi";
 import "./Products.css";
+import { useNavigate } from "react-router-dom";
 
 export const Products = () => {
+  const navigate = useNavigate();
   const {
     isLoading,
     data: allProductData,
     error,
-  } = useQuery(["GetProducts"], () => getAllProduct());
+  } = useQuery(["Products"], () => getAllProduct());
   if (isLoading) {
     return <h3>products are loading keep patience 👌👌👌👌 </h3>;
   }
@@ -23,7 +25,10 @@ export const Products = () => {
                 return (
                   <div class="col-md-3">
                     <div class="wsk-cp-product">
-                      <div class="wsk-cp-img">
+                      <div
+                        class="wsk-cp-img"
+                        onClick={() => navigate(`/singleproduct/${item.id}`)}
+                      >
                         <img
                           src={item.image}
                           alt="Product"

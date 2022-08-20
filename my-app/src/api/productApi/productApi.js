@@ -6,11 +6,20 @@ const getAllProduct = async () => {
   return response;
 };
 const getSingleProduct = async (productID) => {
-  await apiClient.get(`/products/${productID}`);
+  return await apiClient.get(`/products/${productID}`);
 };
 
 const postSingleProduct = async (data) => {
-  await apiClient.post("/products", data);
+  const json = JSON.parse(JSON.stringify(data));
+  await apiClient.post("/products", json);
+};
+const getAllProductCategories = async () => {
+  return await apiClient.get("/products/categories");
 };
 
-export { getAllProduct, getSingleProduct, postSingleProduct };
+export {
+  getAllProduct,
+  getSingleProduct,
+  postSingleProduct,
+  getAllProductCategories,
+};

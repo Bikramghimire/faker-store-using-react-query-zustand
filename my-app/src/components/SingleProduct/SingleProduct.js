@@ -12,20 +12,28 @@ const SingleProduct = () => {
     isLoading,
     isError,
     isFetching,
-  } = useQuery(["Products", productID], () => {
-    return getSingleProduct(productID);
-  });
+  } = useQuery(
+    ["Products", productID],
+    () => {
+      return getSingleProduct(productID);
+      // enabled: productID && true;
+    }
+    // {
+    //   enabled: !!productID,
+    // }
+  );
 
-  if (singleProduct) {
-    return <p>data came</p>;
-  }
-  if (!isLoading) {
-    console.log("single datat===", singleProduct);
-    return <p>is loading</p>;
-  }
-  if (isFetching) {
-    return <>this is isFetching</>;
-  }
+  console.log(singleProduct, 111111111111111);
+  // if (singleProduct) {
+  //   return <p>data came</p>;
+  // }
+  // if (isLoading) {
+  //   console.log("single datat===", singleProduct);
+  //   return <p>is loading</p>;
+  // }
+  // if (isFetching) {
+  //   return <>this is isFetching</>;
+  // }
 
   // return (
   //   <div className="wrapper">
